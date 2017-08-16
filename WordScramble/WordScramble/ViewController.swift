@@ -20,6 +20,9 @@ class ViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Add an "+" button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
     
         /* START. Fill the allWords Array with the words in the start.txt file */
         
@@ -62,6 +65,7 @@ class ViewController: UITableViewController{
         return usedWords.count
     }
     
+    //cellForRowAt
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
@@ -70,6 +74,39 @@ class ViewController: UITableViewController{
         
         return cell
     }
-
+    
+    /*END -------*/
+    
+    
+    //MARK: promptForAnswer function
+    
+    func promptForAnswer() {
+        
+        //Create the alert controller
+        let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+        
+        //Add a textfield to the alert controller
+        ac.addTextField()
+        
+        //submit action
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned self, ac] (action: UIAlertAction) in
+            
+            let answer = ac.textFields![0]
+            self.submit(answer: answer.text!)
+        }
+        
+        //Add the action to the alert controller
+        ac.addAction(submitAction)
+        
+        //Present the alert
+        present(ac, animated: true)
+    
+    }
+    
+    //MARK: submit function
+    
+    func submit(answer: String){
+        
+    }
 }
 

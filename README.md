@@ -1,3 +1,3 @@
 # WordScramble
 Anagram game
-<p><img src="https://j.gifs.com/lOz6P1.gif"></p>
+<p><img src="http://imgur.com/a/osV2j"></p>
